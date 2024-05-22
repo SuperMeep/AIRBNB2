@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea {
+  @apply w-full border my-1 py-2 px-3 rounded-2xl;
+}
+textarea {
+  height: 140px;
+}
+button {
+  @apply bg-gray-300;
+}
+button.primary {
+  @apply bg-primary w-full cursor-pointer transition-all text-white px-6 py-2 rounded-lg
+border-red-600
+border-b-[4px] 
+hover:brightness-110 
+/* hover:-translate-y-[1px] hover:border-b-[6px] */
+active:border-b-[2px] active:brightness-90 active:translate-y-[2px];
+}
+
+button.secondary {
+  @apply bg-primary w-32 cursor-pointer transition-all text-white px-6 py-2 rounded-lg
+border-red-600
+border-b-[4px] 
+hover:brightness-110 
+/* hover:-translate-y-[1px] hover:border-b-[6px] */
+active:border-b-[2px] active:brightness-90 active:translate-y-[2px];
+}
+
+label.label {
+  @apply border p-4 flex rounded gap-2 items-center cursor-pointer;
+}
+
+h3.label {
+  @apply mt-2 -mb-1;
+}

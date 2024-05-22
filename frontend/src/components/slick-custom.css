@@ -1,0 +1,12 @@
+/* slick-custom.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slick-dots li button:before {
+  @apply text-white;
+}
+
+.slick-dots li.slick-active button:before {
+  @apply text-white;
+}
