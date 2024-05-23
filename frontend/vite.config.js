@@ -24,4 +24,9 @@ module.exports = defineConfig({
       },
     },
   },
+  server: {
+    mimeTypes: {
+      "application/javascript": ["js"],
+    },
+  },
 });
