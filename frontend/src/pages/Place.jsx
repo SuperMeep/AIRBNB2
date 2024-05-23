@@ -5,13 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import PlaceGallery from "../components/PlaceGallery";
 import AddressLink from "../components/AddressLink";
 import BookingWidget from "../components/BookingWidget";
+import Spinner from "../components/Spinner";
 
 function Place() {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // Use useSelector to get the place data from the Redux store
-  const place = useSelector((state) => state.places.place);
+  const { place, isLoading } = useSelector((state) => state.places);
 
   useEffect(() => {
     if (!id) {
@@ -22,6 +23,10 @@ function Place() {
   }, [navigate, dispatch, id]);
 
   if (!place) return;
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className="mt-4 bg-gray-100 -mx-8 px-8 pt-8">

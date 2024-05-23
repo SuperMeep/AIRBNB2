@@ -79,6 +79,7 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // Registration
       .addCase(register.pending, (state) => {
         state.isLoading = true;
       })
@@ -86,6 +87,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.user = action.payload;
+        state.message = "Signup successful";
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
@@ -93,6 +95,8 @@ export const authSlice = createSlice({
         state.message = action.payload;
         state.user = null;
       })
+
+      // Login
       .addCase(login.pending, (state) => {
         state.isLoading = true;
       })
@@ -101,6 +105,7 @@ export const authSlice = createSlice({
         state.isSuccess = true;
         state.isAuthorized = true;
         state.user = action.payload;
+        state.message = "Login successful";
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
@@ -108,6 +113,8 @@ export const authSlice = createSlice({
         state.message = action.payload;
         state.user = null;
       })
+
+      // Logout
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
       });

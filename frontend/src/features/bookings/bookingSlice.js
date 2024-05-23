@@ -74,7 +74,7 @@ export const bookingSlice = createSlice({
   name: "bookings",
   initialState,
   reducers: {
-    reset: (state) => {
+    resetBooking: (state) => {
       Object.assign(state, initialState);
       state.isLoading = false;
       state.isSuccess = false;
@@ -92,7 +92,6 @@ export const bookingSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.bookings.push(action.payload);
-        state.message = "Booking created successfully!";
       })
       .addCase(createBooking.rejected, (state, action) => {
         state.isLoading = false;
@@ -132,5 +131,5 @@ export const bookingSlice = createSlice({
   },
 });
 
-export const { reset } = bookingSlice.actions;
+export const { resetBooking } = bookingSlice.actions;
 export default bookingSlice.reducer;

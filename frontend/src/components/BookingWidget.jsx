@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { differenceInCalendarDays } from "date-fns";
 import { useDispatch, useSelector } from "react-redux";
-import { createBooking, reset } from "../features/bookings/bookingSlice";
+import { createBooking, resetBooking } from "../features/bookings/bookingSlice";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -11,9 +11,8 @@ export default function BookingWidget() {
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.auth);
-  const { isLoading, isError, isSuccess, message, place } = useSelector(
-    (state) => state.places
-  );
+  const { place } = useSelector((state) => state.places);
+  const { isLoading } = useSelector((state) => state.bookings);
 
   const [bookingData, setBookingData] = useState({
     checkIn: "",
@@ -57,7 +56,7 @@ export default function BookingWidget() {
     };
 
     dispatch(createBooking(updatedBookingData));
-
+    dispatch(resetBooking());
     setBookingData({
       checkIn: "",
       checkOut: "",
@@ -66,20 +65,8 @@ export default function BookingWidget() {
       phone: "",
     });
 
-    navigate("/account/places");
+    navigate("/");
   };
-
-  useEffect(() => {
-    if (isSuccess && message) {
-      toast.success(message);
-      dispatch(reset());
-    }
-
-    if (isError && message) {
-      toast.error(message);
-      dispatch(reset());
-    }
-  }, [isSuccess, isError, message, dispatch]);
 
   if (isLoading) {
     return <Spinner />;

@@ -10,9 +10,10 @@ import PlaceImg from "../components/PlaceImg";
 function Home() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { user, isLoading, isError, isSuccess } = useSelector(
     (state) => state.auth
   );
+  const { message } = useSelector((state) => state.bookings);
 
   const { places } = useSelector((state) => state.places);
 
@@ -28,13 +29,12 @@ function Home() {
     if (isError) {
       toast.error(message);
     }
-
-    if (isSuccess || !user) {
-      navigate("/login");
+    if (isSuccess) {
+      toast.success(message);
     }
 
     dispatch(reset());
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+  }, [isError, isSuccess, message, dispatch]);
 
   if (isLoading) {
     return <Spinner />;

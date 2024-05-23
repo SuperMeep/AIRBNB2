@@ -1,5 +1,4 @@
 {
-  "homepage": "https://https://supermeep.github.io/AIRBNB2",
   "proxy": "http://localhost:4000",
   "name": "frontend",
   "version": "0.1.0",
@@ -11,13 +10,14 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.2",
+    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
     "axios": "^1.6.7",
+    "build": "^0.1.4",
     "cloudinary": "^2.1.0",
     "cloudinary-react": "^1.8.1",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
-    "firebase": "^10.10.0",
     "postcss": "^8.4.35",
     "postcss-nested": "^6.0.1",
     "react": "^18.2.0",
@@ -32,6 +32,7 @@
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
     "toastify": "^2.0.1",
+    "vite": "^5.2.11",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
