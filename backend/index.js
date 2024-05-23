@@ -20,12 +20,7 @@ app.use(bodyParser.json({ limit: "20mb" })); // Adjust the limit as needed
 
 // middleware
 app.use(express.json());
-app.use(
-  cors({
-    credentials: true,
-    origin: "https://airbnb-2-bbs3i8h7m-marlons-projects-c2eab18e.vercel.app/",
-  })
-);
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
