@@ -5,6 +5,7 @@ const react = require("@vitejs/plugin-react");
 module.exports = defineConfig({
   plugins: [react()],
   build: {
+    outDir: "dist",
     lib: {
       entry: path.resolve(__dirname, "src/index.jsx"),
       name: "MyLib",
